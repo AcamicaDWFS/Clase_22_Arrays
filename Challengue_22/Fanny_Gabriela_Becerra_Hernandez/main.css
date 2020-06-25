@@ -1,0 +1,16 @@
+main {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+}
+
+button {
+    background-color: lightgreen;
+    border-radius: 20px;
+    box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
+    font-size: 4rem;
+    margin: 5vw;
+    width: 90vw;
+}
