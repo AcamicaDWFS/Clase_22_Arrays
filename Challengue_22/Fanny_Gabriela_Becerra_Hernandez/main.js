@@ -1,70 +1,128 @@
-let fruitsArray = new Array("Aguacate", "Berenjena", "Pepino", "Tomate"),
-    arr = ['foo', 'bar', 'baz'],
-    table,
-    newLength,
-    prevLength,
-    tr = null,
-    td = null,
-    txt = '',
-    index = 0;
+/***************************************************************************************************
+ * Name: ARRAYS_LoopsInJavascript
+ * Author:
+ * Description: This script tests for loops for an array.
+ * *************************************************************************************************
+ * LastModifiedBy     |     LastModifiedDate     |     Modification Id     |     Change description
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * Fanny Becerra      |     26-Jun-2020          |     v0.1                |     Beta version
+ */
 
+let counterFor = 0,
+    counterForIn = 0,
+    counterForOf = 0,
+    counterWhile = 0,
+    fruitsArray = ["Aguacatito", "Berenjenita", "Pepinito feliz", "Tomatito bebé"],
+    index = 0,
+    table = null,
+    td = null,
+    tr = null,
+    txt = '';
+
+/** @author:      Fanny Becerra.
+ *   @param:       None.
+ *   @return:      None.
+ *   @description: this function tests while loop.
+ */
 function funcWhile() {
     table = document.getElementById('while');
     console.log('WHILE');
-    while (index < fruitsArray.length) {
-        console.log(fruitsArray[index]);
-        newLength = printRow(table, fruitsArray[index], prevLength);
-        prevLength = newLength;
-        index++;
+    if (counterWhile == 0) {
+        while (index < fruitsArray.length) {
+            console.log(fruitsArray[index]);
+            printRow(table, fruitsArray[index]);
+            index++;
+        }
+        index = 0;
+        counterWhile++;
+
+    } else {
+        deleteRows(table);
+        counterWhile = 0;
     }
-    index = 0;
 }
 
+/** @author:      Fanny Becerra.
+ *   @param:       None.
+ *   @return:      None.
+ *   @description: this function tests for loop.
+ */
 function funcFor() {
     table = document.getElementById('for');
     console.log('FOR');
-    for (index; index < fruitsArray.length; index++) {
-        console.log(fruitsArray[index]);
-        printRow(table, fruitsArray[index]);
+    if (counterFor == 0) {
+        for (index; index < fruitsArray.length; index++) {
+            console.log(fruitsArray[index]);
+            printRow(table, fruitsArray[index]);
+        }
+        index = 0;
+        counterFor++;
+    } else {
+        deleteRows(table);
+        counterFor = 0;
     }
-    index = 0;
 }
 
+/** @author:      Fanny Becerra.
+ *   @param:       None.
+ *   @return:      None.
+ *   @description: this function tests for...in loop.
+ */
 function funcForIn() {
     table = document.getElementById('forIn');
     console.log('FOR IN');
-    for (let fruit in fruitsArray) {
-        console.log(fruitsArray[fruit]);
-        printRow(table, fruitsArray[fruit]);
+    if (counterForIn == 0) {
+        for (let fruit in fruitsArray) {
+            console.log(fruitsArray[fruit]);
+            printRow(table, fruitsArray[fruit]);
+        }
+        counterForIn++;
+    } else {
+        deleteRows(table);
+        counterForIn = 0;
     }
 }
 
+/** @author:      Fanny Becerra.
+ *   @param:       None.
+ *   @return:      None.
+ *   @description: this function tests for...of loop.
+ */
 function funcForOf() {
     table = document.getElementById('forOf');
     console.log('FOR OF');
-    for (let fruit of fruitsArray) {
-        console.log(fruit);
-        printRow(table, fruit);
+    if (counterForOf == 0) {
+        for (let fruit of fruitsArray) {
+            console.log(fruit);
+            printRow(table, fruit);
+        }
+        counterForOf++;
+    } else {
+        deleteRows(table);
+        counterForOf = 0;
     }
 }
 
-function printRow(table, element, prevLength) {
-    console.log('table.children.length ', table.children.length);
-    console.log('fruitsArray.length ', fruitsArray.length);
-    console.log('table ', table);
-    console
-    if (table.children.length >= fruitsArray.length) {
-        table.querySelectorAll('*').forEach(node => node.remove());
-        //table.innerHTML = '';
-        //table.remove();
-    } else {
-        txt = document.createTextNode(element);
-        td = document.createElement('td');
-        tr = document.createElement('tr');
+/** @author:      Fanny Becerra.
+ *   @param:       None.
+ *   @return:      None.
+ *   @description: this function prints a row in a table for every element in fruitsArray.
+ */
+function printRow(table, element) {
+    txt = document.createTextNode(element);
+    td = document.createElement('td');
+    tr = document.createElement('tr');
 
-        td.appendChild(txt);
-        tr.appendChild(td);
-        table.appendChild(tr);
-    }
-    return table.children.length;
+    td.appendChild(txt);
+    tr.appendChild(td);
+    table.appendChild(tr);
+}
+
+/** @author:      Fanny Becerra.
+ *   @param:       None.
+ *   @return:      None.
+ *   @description: this function delets all rows if counters are different from 0.
+ */
+function deleteRows(table) {
+    table.querySelectorAll('tr').forEach(node => node.remove());
 }
