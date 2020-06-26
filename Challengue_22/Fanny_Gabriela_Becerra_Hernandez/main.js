@@ -19,7 +19,7 @@ let counterFor = 0,
     tr = null,
     txt = '';
 
-/** @author:      Fanny Becerra.
+/**  @author:      Fanny Becerra.
  *   @param:       None.
  *   @return:      None.
  *   @description: this function tests while loop.
@@ -42,7 +42,7 @@ function funcWhile() {
     }
 }
 
-/** @author:      Fanny Becerra.
+/**  @author:      Fanny Becerra.
  *   @param:       None.
  *   @return:      None.
  *   @description: this function tests for loop.
@@ -63,7 +63,7 @@ function funcFor() {
     }
 }
 
-/** @author:      Fanny Becerra.
+/**  @author:      Fanny Becerra.
  *   @param:       None.
  *   @return:      None.
  *   @description: this function tests for...in loop.
@@ -83,7 +83,7 @@ function funcForIn() {
     }
 }
 
-/** @author:      Fanny Becerra.
+/**  @author:      Fanny Becerra.
  *   @param:       None.
  *   @return:      None.
  *   @description: this function tests for...of loop.
@@ -103,8 +103,8 @@ function funcForOf() {
     }
 }
 
-/** @author:      Fanny Becerra.
- *   @param:       None.
+/**  @author:      Fanny Becerra.
+ *   @param:       table, element.
  *   @return:      None.
  *   @description: this function prints a row in a table for every element in fruitsArray.
  */
@@ -118,8 +118,8 @@ function printRow(table, element) {
     table.appendChild(tr);
 }
 
-/** @author:      Fanny Becerra.
- *   @param:       None.
+/**  @author:      Fanny Becerra.
+ *   @param:       table.
  *   @return:      None.
  *   @description: this function delets all rows if counters are different from 0.
  */
