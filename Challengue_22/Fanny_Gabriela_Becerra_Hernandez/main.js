@@ -12,7 +12,9 @@ let counterFor = 0,
     counterForIn = 0,
     counterForOf = 0,
     counterWhile = 0,
+    forType = '',
     fruitsArray = ["Aguacatito", "Berenjenita", "Pepinito feliz", "Tomatito bebé"],
+    fruitsLenght = fruitsArray.length,
     index = 0,
     table = null,
     td = null,
@@ -25,10 +27,11 @@ let counterFor = 0,
  *   @description: this function tests while loop.
  */
 function funcWhile() {
-    table = document.getElementById('while');
-    console.log('WHILE');
+    forType = 'while';
+    table = document.getElementById(forType);
     if (counterWhile == 0) {
-        while (index < fruitsArray.length) {
+        console.log(forType);
+        while (index < fruitsLenght) {
             console.log(fruitsArray[index]);
             printRow(table, fruitsArray[index]);
             index++;
@@ -37,8 +40,7 @@ function funcWhile() {
         counterWhile++;
 
     } else {
-        deleteRows(table);
-        counterWhile = 0;
+        deleteRows(table, forType);
     }
 }
 
@@ -48,18 +50,18 @@ function funcWhile() {
  *   @description: this function tests for loop.
  */
 function funcFor() {
-    table = document.getElementById('for');
-    console.log('FOR');
+    forType = 'for';
+    table = document.getElementById(forType);
     if (counterFor == 0) {
-        for (index; index < fruitsArray.length; index++) {
+        console.log(forType);
+        for (index; index < fruitsLenght; index += 1) {
             console.log(fruitsArray[index]);
             printRow(table, fruitsArray[index]);
         }
         index = 0;
         counterFor++;
     } else {
-        deleteRows(table);
-        counterFor = 0;
+        deleteRows(table, forType);
     }
 }
 
@@ -69,17 +71,17 @@ function funcFor() {
  *   @description: this function tests for...in loop.
  */
 function funcForIn() {
-    table = document.getElementById('forIn');
-    console.log('FOR IN');
+    forType = 'forIn';
+    table = document.getElementById(forType);
     if (counterForIn == 0) {
+        console.log(forType);
         for (let fruit in fruitsArray) {
             console.log(fruitsArray[fruit]);
             printRow(table, fruitsArray[fruit]);
         }
         counterForIn++;
     } else {
-        deleteRows(table);
-        counterForIn = 0;
+        deleteRows(table, forType);
     }
 }
 
@@ -89,17 +91,17 @@ function funcForIn() {
  *   @description: this function tests for...of loop.
  */
 function funcForOf() {
-    table = document.getElementById('forOf');
-    console.log('FOR OF');
+    forType = 'forOf';
+    table = document.getElementById(forType);
     if (counterForOf == 0) {
+        console.log(forType);
         for (let fruit of fruitsArray) {
             console.log(fruit);
             printRow(table, fruit);
         }
         counterForOf++;
     } else {
-        deleteRows(table);
-        counterForOf = 0;
+        deleteRows(table, forType);
     }
 }
 
@@ -123,6 +125,15 @@ function printRow(table, element) {
  *   @return:      None.
  *   @description: this function delets all rows if counters are different from 0.
  */
-function deleteRows(table) {
+function deleteRows(table, forType) {
     table.querySelectorAll('tr').forEach(node => node.remove());
+    if (forType == 'while') {
+        counterWhile = 0;
+    } else if (forType == 'for') {
+        counterFor = 0;
+    } else if (forType == 'forIn') {
+        counterForIn = 0;
+    } else if (forType == 'forOf') {
+        counterForOf = 0;
+    }
 }
