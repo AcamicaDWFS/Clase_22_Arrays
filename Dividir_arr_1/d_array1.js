@@ -3,23 +3,24 @@ alert("Programa que divide arrays por el tipo de valor");
 let array_general = []; //Almacén general del input
 
 let i = 0;
-let input_grl = prompt("Ingresa los números que desees. \nCuando finalices escribe el número cero.");
-while (input_grl != "0") { //Mientras el input sea diferente de cero continúa...
-    array_general[i] = input_grl; //Guardar los valores de input_grl en un array_general    
-    input_grl = prompt("Ingresa los números que desees. \nCuando finalices escribe el número cero.");
+let inputGrl = prompt("Ingresa los números que desees. \nCuando finalices escribe el número cero.");
+while (inputGrl != "0") { //Mientras el input sea diferente de cero continúa...
+    array_general[i] = inputGrl; //Guardar los valores de inputGrl en un array_general    
+    inputGrl = prompt("Ingresa los números que desees. \nCuando finalices escribe el número cero.");
     i++;
 }
 
 console.log(array_general);
 
 function n_pares(array) {
-    let almacen_pares = [];    
-    for (i = 0; i < array.length; i++) {
-        let pares = array[i] % 2;
-        let numb_trans = parseInt(array[i]);
+    let almacen_pares = [];
+       
+    for (let index = 0, arrayLength = array.length; index < arrayLength; index += 1) {
+        let pares = array[index] % 2;
+        let numb_trans = parseInt(array[index]);
 
         if (pares == 0 && (!isNaN(numb_trans))) {
-            almacen_pares.push(array[i]);            
+            almacen_pares.push(array[index]);            
         } 
     }
     return almacen_pares;
