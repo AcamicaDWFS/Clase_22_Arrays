@@ -1,9 +1,9 @@
 //Creación del array
-var frutas = ["piña", "melon", "naranja", "plátano", "durazno", "sandía", "guayaba", "papaya"];
+let frutas = ["piña", "melon", "naranja", "plátano", "durazno", "sandía", "guayaba", "papaya"];
 console.log(frutas);
 
-var i = 0; 
-while (i < frutas.length) {
-    console.log(frutas[i]);
-    i++;
+let index = 0; 
+while (index < frutas.length) {
+    console.log(frutas[index]);
+    index+= 1;
 }
